@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "/logo.png"
 
 export default function Header() {
   //mopile nav
@@ -8,22 +7,21 @@ export default function Header() {
 
 
   return (
-    <header className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-neutral-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <header className="absolute w-full top-0 z-40 backdrop-blur">
+      <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 h-22 flex items-center justify-between border-b-2 border-white">
         <div className="flex items-center gap-3">
-          <img className="w-[137px] h-[36]" src={logo} alt="" />
+          <img className="w-[137px] h-[36]" src="/logo.png" alt="" />
           {/* <div className="hidden md:block text-sm text-neutral-500">ISO 9001:2015</div> */}
         </div>
 
 
-        <nav className="hidden lg:flex gap-6 text-sm">
-          <a href="#home" className="hover:text-neutral-700">الرئيسية</a>
-          <a href="#impact" className="hover:text-neutral-700">مجالات التأثير</a>
-          <a href="#impact" className="hover:text-neutral-700">الحملات</a>
-          <a href="#projects" className="hover:text-neutral-700">المشاريع</a>
-          <a href="#news" className="hover:text-neutral-700">الأخبار</a>
-          <a href="#about" className="hover:text-neutral-700">عن المؤسسة</a>
-          <a href="#contact" className="hover:text-neutral-700">تواصل معنا</a>
+        <nav className="hidden lg:flex gap-6 text-[30px] text-white font-bold">
+          <a href="#home" className="">الرئيسية</a>
+          <a href="#impact" className="">مجالات التأثير</a>
+          <a href="#projects" className="">المشاريع</a>
+          <a href="#news" className="">الأخبار</a>
+          <a href="#about" className="">عن المؤسسة</a>
+          <a href="#contact" className="">تواصل معنا</a>
         </nav>
 
 
