@@ -10,7 +10,7 @@ export default function Header() {
     <header className="absolute w-full top-0 z-40 backdrop-blur-[5px]">
       <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 h-22 flex items-center justify-between border-b border-white">
         <div className="flex items-center gap-3">
-          <img className="w-[137px] h-[36]" src="/logo.png" alt="" />
+          <img className="w-[137px] h-[60]" src="/logo.png" alt="" />
           {/* <div className="hidden md:block text-sm text-neutral-500">ISO 9001:2015</div> */}
         </div>
 
