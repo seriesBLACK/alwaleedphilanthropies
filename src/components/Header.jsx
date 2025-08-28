@@ -7,15 +7,15 @@ export default function Header() {
 
 
   return (
-    <header className="absolute w-full top-0 z-40 backdrop-blur">
-      <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 h-22 flex items-center justify-between border-b-2 border-white">
+    <header className="absolute w-full top-0 z-40 backdrop-blur-[5px]">
+      <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 h-22 flex items-center justify-between border-b border-white">
         <div className="flex items-center gap-3">
           <img className="w-[137px] h-[36]" src="/logo.png" alt="" />
           {/* <div className="hidden md:block text-sm text-neutral-500">ISO 9001:2015</div> */}
         </div>
 
 
-        <nav className="hidden lg:flex gap-6 text-[30px] text-white font-bold">
+        <nav className="hidden lg:flex gap-6 text-[26px] text-white">
           <a href="#home" className="">الرئيسية</a>
           <a href="#impact" className="">مجالات التأثير</a>
           <a href="#projects" className="">المشاريع</a>
@@ -26,7 +26,7 @@ export default function Header() {
 
 
         <button className="lg:hidden" onClick={() => setOpen((s) => !s)} aria-label="فتح القائمة">
-          {open ? <X /> : <Menu />}
+          {open ? <X className="text-white" /> : <Menu className="text-white" />}
         </button>
       </div>
 
