@@ -56,15 +56,6 @@ export default function Hero() {
           <source src="/video.webm" type="video/webm" />
         </video>
 
-        {/* Fallback image */}
-        {!isVideoLoaded && (
-          <img
-            src="/fallback-image.png"
-            alt="Background"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        )}
-
         {/* Optional overlay to improve text readability */}
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
