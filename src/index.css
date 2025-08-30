@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+* {
+  font-family: 'Noto Sans Arabic', ui-sans-serif, system-ui, sans-serif !important;
+}
+
+body {
+  background: #FFF;
+  background: linear-gradient(290deg, rgba(255, 255, 255, 1) 0%, rgba(16, 164, 227, 1) 50%, rgba(255, 255, 255, 1) 100%);
+}

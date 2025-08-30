@@ -33,8 +33,6 @@ function useCountUp(target = 0, duration = 1400) {
 }
 
 export default function Hero() {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-
   return (
     <section className="relative w-full h-screen">
       {/* Video background */}
@@ -44,14 +42,9 @@ export default function Hero() {
           loop
           muted
           playsInline
-          className={`
+          className="
             w-full h-full object-cover
-            transition-opacity duration-1000 ease-in-out
-            ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}
-          `}
-          onLoadedData={() => setIsVideoLoaded(true)}
-          poster="/logo.png" // Fallback image
-        >
+            transition-opacity duration-1000 ease-in-out">
           <source src="/ap-video.mp4" type="video/mp4" />
           <source src="/video.webm" type="video/webm" />
         </video>
