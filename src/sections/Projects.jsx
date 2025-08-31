@@ -23,15 +23,15 @@ export default function Projects() {
         viewport={{ once: true, amount: 0.2 }}
         className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <div className="lg:col-span-3 md:col-span-2 flex bg-amber-400">
-          <img src="/projects/project1.jpg" alt="" className="w-full" />
+        <div className="lg:col-span-3 md:col-span-2 flex flex-col md:flex-row bg-amber-400 overflow-hidden rounded-lg">
+          <img src="/projects/project1.jpg" alt="" className="w-full md:w-1/2 h-48 md:h-auto object-cover" />
 
-          <div className="w-[80%] pr-5 h-full flex flex-col justify-around">
-            <span className="text-lg text-neutral-100">مكتمل</span>
-            <h2 className="text-[4.5vw] text-white">
+          <div className="w-full md:w-1/2 pr-5 p-4 flex flex-col justify-center gap-2">
+            <span className="text-sm md:text-lg text-neutral-100">مكتمل</span>
+            <h2 className="text-2xl sm:text-3xl md:text-[4.5vw] text-white leading-tight">
               إغاثة زلزال ألبانيا
             </h2>
-            <p className="text-lg text-neutral-100">مدّ يد العون عند وقوع الكوارث</p>
+            <p className="text-sm md:text-lg text-neutral-100">مدّ يد العون عند وقوع الكوارث</p>
           </div>
         </div>
 
