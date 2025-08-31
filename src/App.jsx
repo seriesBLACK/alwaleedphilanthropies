@@ -4,6 +4,7 @@ import News from "./sections/News";
 import Projects from "./sections/Projects";
 import SectionOne from "./sections/SectionOne";
 import './index.css'
+import Ideas from "./sections/Ideas";
 
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
       <Hero />
       <Projects />
       <News />
+      <Ideas />
       <SectionOne />
     </div>
 
