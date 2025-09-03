@@ -10,13 +10,6 @@ const container = {
   },
 };
 
-function PlaceholderImg({ ratio = "pt-[56.25%]", label = "صورة" }) {
-  return (
-    <div className={`relative bg-neutral-100 ${ratio} w-full`}>
-      <div className="absolute inset-0 grid place-items-center text-neutral-400">{label}</div>
-    </div>
-  );
-}
 
 export default function News() {
   return (

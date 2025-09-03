@@ -15,7 +15,7 @@ const container = {
 export default function Projects() {
 
   return (
-    <Section id="projects" title="أعمالنا الأخيرة">
+    <Section id="projects" title="أعمالنا الأخيرة" leadingText={true}>
       <motion.div
         variants={container}
         initial="hidden"
@@ -23,7 +23,7 @@ export default function Projects() {
         viewport={{ once: true, amount: 0.2 }}
         className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <div className="lg:col-span-3 md:col-span-2 flex flex-col md:flex-row bg-amber-400 overflow-hidden rounded-lg">
+        <div className="lg:col-span-3 md:col-span-2 flex flex-col md:flex-row bg-amber-400 overflow-hidden rounded-lg z-10">
           <img src="/projects/project1.jpg" alt="" className="w-full md:w-1/2 h-48 md:h-auto object-cover" />
 
           <div className="w-full md:w-1/2 pr-5 p-4 flex flex-col justify-center gap-2">
