@@ -7,6 +7,7 @@ import Ideas from "./sections/Ideas";
 import InfoSection from "./sections/InfoSection";
 import { BackgroundGradientAnimation } from "./components/ui/shadcn-io/background-gradient-animation";
 import FocusAreasSection from "./sections/FocusAreasSection";
+import About from "./sections/About";
 
 
 export default function App() {
@@ -33,6 +34,7 @@ export default function App() {
       <Ideas />
       <InfoSection />
       <FocusAreasSection />
+      <About />
     </div>
 
 
