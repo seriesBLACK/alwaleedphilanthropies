@@ -1,6 +1,6 @@
-export default function Card({ projectState, title, goal, img, className, imgClassName, titleClassname }) {
+export default function Card({ projectState, spanClass, pClass, title, goal, img, className, imgClassName, titleClassname }) {
   return (
-    <div className={`rounded-xl ${className} z-10`}>
+    <div className={`rounded-xl ${className || "bg-white"} z-10`}>
       <div className="w-full">
         <img
           src={img}
@@ -9,11 +9,11 @@ export default function Card({ projectState, title, goal, img, className, imgCla
         />
       </div>
       <div className="w-full h-[200px] flex flex-col justify-around pr-5">
-        <span className="text-lg text-neutral-100">{projectState}</span>
-        <h2 className={`text-white font-semibold text-2xl ${titleClassname}`}>
+        <span className={`text-lg ${spanClass || "text-black"}`}>{projectState}</span>
+        <h2 className={`font-semibold text-2xl ${titleClassname || "text-black"}`}>
           {title}
         </h2>
-        <p className="text-lg text-neutral-100 mt-2">{goal}</p>
+        <p className={`text-lg mt-2 ${pClass || "text-black"}`}>{goal}</p>
       </div>
     </div>
   );

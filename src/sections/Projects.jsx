@@ -35,9 +35,9 @@ export default function Projects() {
           </div>
         </div>
 
-        <Card projectState="مكتمل" title="أطلقت مؤسسة الوليد..." goal="تنمية البيئة المستدامة" img="/projects/project2.jpg" className="bg-[#6868c9]" />
-        <Card projectState="الحمله" title="بيت العرب: تمكين الحرفيات" goal="تمكين المرأة والشباب" img="/projects/project3.jpg" className="bg-[#18a55b]" />
-        <Card projectState="الحمله" title="تمكين المرأة السعودية: مبادرة..." goal="تمكين المرأة والشباب" img="/projects/project4.jpg" className="bg-[#6868c9]" />
+        <Card projectState="مكتمل" title="أطلقت مؤسسة الوليد..." goal="تنمية البيئة المستدامة" img="/projects/project2.jpg" className="bg-[#6868c9]" spanClass="text-white" pClass="text-white" titleClassname="text-white" />
+        <Card projectState="الحمله" title="بيت العرب: تمكين الحرفيات" goal="تمكين المرأة والشباب" img="/projects/project3.jpg" className="bg-[#18a55b]" spanClass="text-white" pClass="text-white" titleClassname="text-white" />
+        <Card projectState="الحمله" title="تمكين المرأة السعودية: مبادرة..." goal="تمكين المرأة والشباب" img="/projects/project4.jpg" className="bg-[#6868c9]" spanClass="text-white" pClass="text-white" titleClassname="text-white" />
       </motion.div>
     </Section>
   )

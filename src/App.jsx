@@ -15,7 +15,7 @@ export default function App() {
 
 
     <div dir="rtl" className="">
-      {/* <BackgroundGradientAnimation
+      <BackgroundGradientAnimation
         gradientBackgroundStart="rgb(200, 200, 200)"
         gradientBackgroundEnd="rgb(200, 200, 190)"
         firstColor="102, 16, 242"
@@ -26,7 +26,7 @@ export default function App() {
         pointerColor="140, 100, 255"
         blendingValue="screen"
         interactive={true}
-      /> */}
+      />
       <Header />
       <Hero />
       <Projects />

@@ -8,8 +8,8 @@ export default function InfoSection() {
 
       <div className="w-full flex flex-col items-center justify-around lg:flex-row z-10">
 
-        <div className="text-center w-full lg:w-1/2 px-6 py-8 lg:py-0">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[4vw] font-bold text-gray-800 leading-relaxed">
+        <div className="text-center w-full lg:w-1/2 px-6 py-8 lg:py-0 z-10">
+          <h2 className="text-2xl z-10 sm:text-3xl md:text-4xl lg:text-[4vw] font-bold text-gray-800 leading-relaxed">
             نبادر وندعم ونتعاون على مشاريع وحملات خيرية <br />
             <span className="text-red-600">في جميع أنحاء العالم</span> لنفيد
             الإنسانية بكل أجناسها وأعراقها وأديانها.
