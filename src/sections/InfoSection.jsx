@@ -6,17 +6,17 @@ export default function InfoSection() {
   return (
     <Section id="info" line={false}>
 
-      <div className="h-full w-full flex sm:flex-col lg:flex-row z-10">
+      <div className="w-full flex flex-col items-center justify-around lg:flex-row z-10">
 
-        <div className="text-center w-[50%]">
-          <h2 className="text-[4vw] font-bold text-gray-800">
+        <div className="text-center w-full lg:w-1/2 px-6 py-8 lg:py-0">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[4vw] font-bold text-gray-800 leading-relaxed">
             نبادر وندعم ونتعاون على مشاريع وحملات خيرية <br />
             <span className="text-red-600">في جميع أنحاء العالم</span> لنفيد
             الإنسانية بكل أجناسها وأعراقها وأديانها.
           </h2>
         </div>
 
-        <div className="flex flex-col w-[50%] h-full justify-center items-center">
+        <div className="flex flex-col w-full h-fit lg:w-1/2 lg:h-full justify-center items-center px-4 py-6">
           <Carousel
             plugins={[
               Autoplay({
@@ -25,15 +25,15 @@ export default function InfoSection() {
               }),
             ]}
 
-            className="flex flex-col items-center justify-center border-2 border-gray-300 rounded-full w-[60%] aspect-square bg-white text-center">
+            className="flex flex-col items-center justify-center border-2 border-gray-300 rounded-lg lg:rounded-full w-[92%] max-w-[420px] lg:w-[60%] lg:aspect-square bg-white text-center">
             <CarouselContent>
-              <CarouselItem >
-                <div className="flex flex-col h-[400px] items-center justify-center">
+              <CarouselItem>
+                <div className="flex flex-col items-center justify-center py-8 sm:py-12 h-auto sm:h-[300px] md:h-[360px] lg:h-[400px] relative">
 
-                  <p className="text-8xl font-bold text-gray-700">+1.5 مليار</p>
-                  <p className="text-5xl text-gray-700">مستفيد</p>
-                  <p className="text-gray-600 text-2xl">حول العالم.</p>
-                  <div className="flex gap-2 absolute bottom-0 justify-center">
+                  <p className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-700">+1.5 مليار</p>
+                  <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-700">مستفيد</p>
+                  <p className="text-sm md:text-2xl text-gray-600">حول العالم.</p>
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
                     <span className="w-3 h-3 rounded-full bg-gray-400"></span>
                     <span className="w-3 h-3 rounded-full bg-gray-300"></span>
                     <span className="w-3 h-3 rounded-full bg-gray-300"></span>
@@ -41,12 +41,12 @@ export default function InfoSection() {
                 </div>
 
               </CarouselItem>
-              <CarouselItem >
-                <div className="flex flex-col h-[400px] items-center justify-center">
+              <CarouselItem>
+                <div className="flex flex-col items-center justify-center py-8 sm:py-12 h-auto sm:h-[300px] md:h-[360px] lg:h-[400px] relative">
 
-                  <p className="text-8xl font-bold text-gray-700">190 بلد </p>
-                  <p className="text-5xl text-gray-700">بغض النظر عن الجنس او العرق او الدين</p>
-                  <div className="flex gap-2 absolute bottom-0 justify-center">
+                  <p className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-700">190 بلد</p>
+                  <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-700">بغض النظر عن الجنس او العرق او الدين</p>
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
                     <span className="w-3 h-3 rounded-full bg-gray-300"></span>
                     <span className="w-3 h-3 rounded-full bg-gray-400"></span>
                     <span className="w-3 h-3 rounded-full bg-gray-300"></span>
@@ -54,10 +54,10 @@ export default function InfoSection() {
                 </div>
               </CarouselItem>
               <CarouselItem>
-                <div className="flex flex-col h-[400px] items-center justify-center">
-                  <p className="text-8xl font-bold text-gray-700">45+ سنة</p>
-                  <p className="text-5xl text-gray-700">من الدعم المستمر والعمل الجاد</p>
-                  <div className="flex gap-2 absolute bottom-0 justify-center">
+                <div className="flex flex-col items-center justify-center py-8 sm:py-12 h-auto sm:h-[300px] md:h-[360px] lg:h-[400px] relative">
+                  <p className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-700">45+ سنة</p>
+                  <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-700">من الدعم المستمر والعمل الجاد</p>
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
                     <span className="w-3 h-3 rounded-full bg-gray-300"></span>
                     <span className="w-3 h-3 rounded-full bg-gray-300"></span>
                     <span className="w-3 h-3 rounded-full bg-gray-400"></span>
