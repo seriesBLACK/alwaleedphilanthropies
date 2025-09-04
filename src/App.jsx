@@ -8,6 +8,7 @@ import InfoSection from "./sections/InfoSection";
 import { BackgroundGradientAnimation } from "./components/ui/shadcn-io/background-gradient-animation";
 import FocusAreasSection from "./sections/FocusAreasSection";
 import About from "./sections/About";
+import Footer from "./components/Footer";
 
 
 export default function App() {
@@ -15,9 +16,9 @@ export default function App() {
 
 
     <div dir="rtl" className="">
-      <BackgroundGradientAnimation
-        gradientBackgroundStart="rgb(200, 200, 200)"
-        gradientBackgroundEnd="rgb(200, 200, 190)"
+      {/* <BackgroundGradientAnimation
+        gradientBackgroundStart="rgb(241, 241, 241)"
+        gradientBackgroundEnd="rgb(241, 241, 241)"
         firstColor="102, 16, 242"
         secondColor="67, 126, 218"
         thirdColor="120, 92, 191"
@@ -25,8 +26,8 @@ export default function App() {
         fifthColor="180, 180, 50"
         pointerColor="140, 100, 255"
         blendingValue="screen"
-        interactive={true}
-      />
+        interactive={false}
+      /> */}
       <Header />
       <Hero />
       <Projects />
@@ -35,6 +36,7 @@ export default function App() {
       <InfoSection />
       <FocusAreasSection />
       <About />
+      <Footer />
     </div>
 
 
