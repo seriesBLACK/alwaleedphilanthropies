@@ -1,6 +1,6 @@
 export default function Section({ id, title, children, line = true, leadingText = false }) {
   return (
-    <section id={id} className="w-full mx-auto px-3 lg:px-29 lg:py-12 py-1 z-10">
+    <section id={id} className="w-full mx-auto px-3 lg:px-29 lg:py-12 py-1 z-10 white-background">
       <div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}

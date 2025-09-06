@@ -10,7 +10,7 @@ export default function Card({ projectState, spanClass, pClass, title, goal, img
       </div>
       <div className="w-full h-[200px] flex flex-col justify-around pr-5">
         <span className={`text-lg ${spanClass || "text-black"}`}>{projectState}</span>
-        <h2 className={`font-semibold text-2xl ${titleClassname || "text-black"}`}>
+        <h2 className={`text-2xl ${titleClassname || "text-black"}`}>
           {title}
         </h2>
         <p className={`text-lg mt-2 ${pClass || "text-black"}`}>{goal}</p>
