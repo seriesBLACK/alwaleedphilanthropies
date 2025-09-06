@@ -5,40 +5,33 @@ import Projects from "./sections/Projects";
 import './index.css'
 import Ideas from "./sections/Ideas";
 import InfoSection from "./sections/InfoSection";
-import { BackgroundGradientAnimation } from "./components/ui/shadcn-io/background-gradient-animation";
 import FocusAreasSection from "./sections/FocusAreasSection";
 import About from "./sections/About";
 import Footer from "./components/Footer";
+import Form from "./components/Form";
+import { Route, Routes } from "react-router-dom";
 
 
 export default function App() {
   return (
-
-
-    <div dir="rtl" className="">
-      {/* <BackgroundGradientAnimation
-        gradientBackgroundStart="rgb(241, 241, 241)"
-        gradientBackgroundEnd="rgb(241, 241, 241)"
-        firstColor="102, 16, 242"
-        secondColor="67, 126, 218"
-        thirdColor="120, 92, 191"
-        fourthColor="0, 206, 124"
-        fifthColor="180, 180, 50"
-        pointerColor="140, 100, 255"
-        blendingValue="screen"
-        interactive={false}
-      /> */}
-      <Header />
-      <Hero />
-      <Projects />
-      <News />
-      <Ideas />
-      <InfoSection />
-      <FocusAreasSection />
-      <About />
-      <Footer />
-    </div>
-
-
-  )
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <div dir="rtl" className="">
+            <Header />
+            <Hero />
+            <Projects />
+            <News />
+            <Ideas />
+            <InfoSection />
+            <FocusAreasSection />
+            <About />
+            <Footer />
+          </div>
+        }
+      />
+      <Route path="/form" element={<Form />} />
+    </Routes>
+  );
 }

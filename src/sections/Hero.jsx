@@ -74,18 +74,18 @@ function Content() {
           animate="show"
           className="max-w-2xl"
         >
-          <motion.h1 variants={item} className="text-4xl md:text-5xl leading-[1.2]">
-            شركاء في سعي الإنسانية لأجل عالم متكافئ الفرص
+          <motion.h1 variants={item} className="text-3xl md:text-5xl leading-[1.2]">
+            شركاء في سعي الأنسان
           </motion.h1>
           <motion.p variants={item} className="mt-4 text-lg md:text-xl text-white/90">
-            نبادر ونتعاون مع شركاء محليين وعالميين لصناعة الأثر وتمكين الإنسان أينما كان.
+            مؤسسة الوليد للإنسانية تدعم كافة ابناء الوطن العربي
           </motion.p>
           <motion.div variants={item} className="mt-8 flex justify-start gap-3">
-            <a href="#impact" className="inline-flex items-center gap-2 px-5 py-3 font-semibold text-white hover:opacity-90">
-              استكشف مجالات التأثير <ArrowLeft size={18} />
+            <a href="/form" className="inline-flex items-center gap-1 px-3 py-3 font-semibold text-white hover:opacity-90">
+              لتقديم طلب مساعدة<ArrowLeft size={18} />
             </a>
-            <a href="#projects" className="inline-flex px-5 py-3 rounded-xl border border-white text-white hover:bg-white/10">
-              اطّلع على مشاريعنا
+            <a href="/form" className="inline-flex text-lg px-5 py-3 rounded-xl border-2 border-white text-white hover:bg-white/10">
+              تقديم طلب
             </a>
           </motion.div>
         </motion.div>

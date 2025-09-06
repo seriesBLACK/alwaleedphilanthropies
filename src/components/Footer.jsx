@@ -55,7 +55,10 @@ export default function Footer() {
       </div>
 
       <footer className="w-full h-16 flex-shrink-0">
-        <div className="max-w-7xl mx-auto h-full flex items-center justify-center">
+        <div className="w-full h-full flex items-center justify-around">
+          <p className="text-xs text-gray-400 hidden lg:block">
+            جميع الحقوق محفوظة @ 2025
+          </p>
           <div className="flex items-center gap-4">
             <a href="https://www.youtube.com/channel/UCcbnorgWmKB5sM1himuZlvQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="text-black hover:text-red-600">
               <svg className="h-8 w-8 lg:h-12 lg:w-12" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" role="img">
@@ -71,7 +74,7 @@ export default function Footer() {
             </a>
 
             <a href="https://x.com/rym553276209" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-black hover:text-slate-700">
-              <svg className="h-8 w-8 lg:h-12 lg:w-12" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
+              <svg className="h-8 w-8 lg:h-12 lg:w-12" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
             </a>
 
             <a href="https://www.instagram.com/lmyrhryml388" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-black hover:text-pink-500">
@@ -90,10 +93,12 @@ export default function Footer() {
             </a>
 
             <a href="https://wa.me/966590858707" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-black hover:text-green-600">
-              <svg className="h-8 w-8 lg:h-12 lg:w-12" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg>
+              <svg className="h-8 w-8 lg:h-12 lg:w-12" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg>
             </a>
           </div>
+
         </div>
+
       </footer>
 
     </section>

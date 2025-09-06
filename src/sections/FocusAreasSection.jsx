@@ -11,7 +11,7 @@ import Section from "@/components/Section";
 export default function FocusAreasSection() {
   return (
     <Section id="FocusAreasSection" title="نغير العالم عبر">
-      <div className="h-screen w-full flex justify-between items-center">
+      <div className="h-screen w-full flex flex-col justify-between items-center lg:flex-row">
         <div className="flex flex-col z-10 justify-evenly items-start lg:text-[4vw] text-4xl lg:w-fit w-full lg:h-full h-[60%] font-bold">
           <h4 className="focus-area-hover">تنمية المجتمعات</h4>
           <h4 className="focus-area-hover">تمكين المرأة والشباب</h4>
@@ -19,7 +19,11 @@ export default function FocusAreasSection() {
           <h4 className="focus-area-hover">مدّ يد العون عند وقوع الكوارث</h4>
           <h4 className="focus-area-hover">تنمية البيئة المستدامة</h4>
         </div>
-        <p className="hidden lg:block">اعرف المزيد</p>
+        <a href="/form"
+          className="bg-black text-white px-6 py-3 rounded-lg shadow-md font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 w-full max-w-xs lg:max-w-md"
+        >
+          تقديم طلب مساعدة خيرية
+        </a>
       </div>
     </Section>
   )
