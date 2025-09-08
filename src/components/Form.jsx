@@ -11,6 +11,7 @@ export default function GrantFormClone() {
     bankName: "",
     bankNum: ""
   });
+
   const [file, setFile] = useState(null);
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
@@ -53,18 +54,43 @@ export default function GrantFormClone() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (!validate()) return;
+    // if (!validate()) return;
     setSubmitting(true);
 
     try {
-      await new Promise((res) => setTimeout(res, 900));
-      alert("تم استلام طلبك (نموذج تجريبي)");
-      setForm({ type: "", name: "", email: "", address: "", phone: "", nationality: "" });
-      setFile(null);
-      fileInputRef.current && (fileInputRef.current.value = "");
-      setErrors({});
-    } catch (err) {
-      alert("حدث خطأ. حاول مرة أخرى.");
+      // 1. Send email using Resend API
+      const emailResponse = await fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email
+        })
+      });
+      console.log("post");
+
+
+      const emailResult = await emailResponse.json();
+      if (!emailResult.success) {
+        alert('لم يتم إرسال البريد الإلكتروني. حاول مرة أخرى.');
+        setSubmitting(false);
+        return;
+      }
+
+      console.log("email");
+
+      // 2. Upload form data to Firestore
+      // await addDoc(collection(db, 'grantRequests'), {
+      //   ...form,
+      //   fileName: file?.name || '',
+      //   createdAt: new Date().toISOString()
+      // });
+
+      alert('تم إرسال طلبك بنجاح');
+      setForm({ type: "", name: "", email: "", address: "", phone: "", nationality: "", bankName: "", bankNum: "" });
+    } catch (error) {
+      console.error(error);
+      alert('حدث خطأ أثناء الإرسال');
     } finally {
       setSubmitting(false);
     }
@@ -198,3 +224,18 @@ export default function GrantFormClone() {
     </div>
   );
 }
+
+//re_DPQZdEqQ_Jij4QdmVbo252rtkhHLPX29d
+
+/* 
+import { Resend } from 'resend';
+
+const resend = new Resend('re_DPQZdEqQ_Jij4QdmVbo252rtkhHLPX29d');
+
+resend.emails.send({
+  from: 'onboarding@resend.dev',
+  to: 'aw.webdevelop@gmail.com',
+  subject: 'Hello World',
+  html: '<p>Congrats on sending your <strong>first email</strong>!</p>'
+});
+*/
