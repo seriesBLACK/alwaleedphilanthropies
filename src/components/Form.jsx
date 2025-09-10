@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 
 export default function GrantFormClone() {
   const [form, setForm] = useState({
@@ -9,7 +9,9 @@ export default function GrantFormClone() {
     phone: "",
     nationality: "",
     bankName: "",
-    bankNum: ""
+    bankNum: "",
+    explain: "",
+    idNum: ""
   });
 
   const [file, setFile] = useState(null);
@@ -58,36 +60,21 @@ export default function GrantFormClone() {
     setSubmitting(true);
 
     try {
-      // 1. Send email using Resend API
-      const emailResponse = await fetch('/api/sendEmail', {
+      // 1. Call Vercel API for email
+      const emailResponse = await fetch('http://localhost:3000/api/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email
-        })
+        body: JSON.stringify({ name: form.name, email: form.email }),
       });
-      console.log("post");
-
 
       const emailResult = await emailResponse.json();
+      console.log(emailResponse);
       if (!emailResult.success) {
-        alert('لم يتم إرسال البريد الإلكتروني. حاول مرة أخرى.');
         setSubmitting(false);
         return;
       }
 
-      console.log("email");
-
-      // 2. Upload form data to Firestore
-      // await addDoc(collection(db, 'grantRequests'), {
-      //   ...form,
-      //   fileName: file?.name || '',
-      //   createdAt: new Date().toISOString()
-      // });
-
       alert('تم إرسال طلبك بنجاح');
-      setForm({ type: "", name: "", email: "", address: "", phone: "", nationality: "", bankName: "", bankNum: "" });
     } catch (error) {
       console.error(error);
       alert('حدث خطأ أثناء الإرسال');
@@ -97,13 +84,13 @@ export default function GrantFormClone() {
   };
 
   return (
-    <div dir="rtl" className="min-h-screen bg-gray-100 flex items-start justify-center p-6">
+    <div dir="rtl" className="min-h-scree bg-green-900 flex items-start justify-center text-white">
       <div className="w-full max-w-2xl">
         <div className="text-center mb-6">
           <h1 className="text-2xl md:text-3xl font-bold">تسجيل جديد</h1>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
+        <div className="rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
           <form onSubmit={onSubmit} className="space-y-6">
             {/* نوع الطلب */}
             <div>
@@ -167,14 +154,21 @@ export default function GrantFormClone() {
               {errors.bankNum && <p className="text-red-600 text-sm mt-1">{errors.bankNum}</p>}
             </div>
 
+            {/*رقم الهويه */}
+            <div>
+              <label className="block mb-1">رقم الهوية*</label>
+              <input name="idNum" value={form.idNum} onChange={handleChange} className={`w-full border rounded-xl px-4 py-2.5 ${errors.idNum ? "border-red-400" : "border-gray-300"}`} />
+              {errors.idNum && <p className="text-red-600 text-sm mt-1">{errors.bankNum}</p>}
+            </div>
+
             {/* صورة الهوية */}
             <div className="space-y-2">
-              <label htmlFor="idImage" className="block text-sm font-medium text-gray-800">
+              <label htmlFor="idImage" className="block text-sm font-medium text-white">
                 صورة الهوية
               </label>
 
               <div
-                className={`rounded-xl border-2 border-dashed p-4 transition-colors ${errors.file ? "border-red-300 bg-red-50" : "border-gray-300 bg-gray-50"
+                className={`rounded-xl border-2 border-dashed bg-transparent p-4 transition-colors ${errors.file ? "border-red-300" : "border-gray-300 bg-gray-50"
                   }`}
               >
                 <input
@@ -183,14 +177,14 @@ export default function GrantFormClone() {
                   type="file"
                   accept="image/*,application/pdf"
                   onChange={(e) => setFile(e.target.files?.[0] ?? null)}
-                  className="block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-gray-800 file:text-white hover:file:bg-gray-700 cursor-pointer"
+                  className="block w-full text-sm text-white file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-gray-800 file:text-white hover:file:bg-gray-700 cursor-pointer"
                 />
-                <p className="text-xs text-gray-500 mt-2">ملفات مدعومة (الحد الأقصى {MAX_MB}MB)</p>
+                <p className="text-xs mt-2">ملفات مدعومة (الحد الأقصى {MAX_MB}MB)</p>
                 {file && (
-                  <div className="mt-3 text-sm text-gray-700">
+                  <div className="mt-3 text-sm">
                     <div className="flex items-center gap-2">
                       <span className="truncate max-w-[60ch]">{file.name}</span>
-                      <span className="text-gray-500">• {formatBytes(file.size)}</span>
+                      <span className="text-white">• {formatBytes(file.size)}</span>
                     </div>
                     <button
                       type="button"
@@ -209,6 +203,14 @@ export default function GrantFormClone() {
                 <p className="text-sm text-red-600 mt-1">{errors.file}</p>
               )}
             </div>
+
+            {/*شرح الحاله*/}
+            <div>
+              <label className="block mb-1">شرح مختصر عن الحالة *</label>
+              <input name="explain" value={form.explain} onChange={handleChange} className={`w-full h-22 border rounded-xl px-4 py-2.5 ${errors.explain ? "border-red-400" : "border-gray-300"}`} />
+              {errors.explain && <p className="text-red-600 text-sm mt-1">{errors.explain}</p>}
+            </div>
+
 
             <div>
               <button type="submit" disabled={submitting} className="bg-gray-900 text-white px-6 py-3 rounded-xl hover:bg-black w-full">
