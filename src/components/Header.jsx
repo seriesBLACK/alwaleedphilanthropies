@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
-import Sidebar from "./sidebar";
+import { Menu } from "lucide-react";
+import Sidebar from "./Sidebar";
 
 export default function Header() {
   //mopile nav
