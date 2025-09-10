@@ -1,28 +1,32 @@
-import { Resend } from 'resend';
-import React from 'react';
-import { render } from '@react-email/render';
-import WelcomeEmail from '../emails/WelcomeEmail.jsx';
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method Not Allowed' });
-  }
-
-  const { name, email } = req.body;
-  const resend = new Resend(process.env.RESEND_API_KEY);
-
+export async function POST(req) {
   try {
-    const emailHtml = render(React.createElement(WelcomeEmail, { name }));
+    const body = await req.json();
+    const { name, email } = body;
 
-    const data = await resend.emails.send({
-      from: 'alkhyrytm108@gmail.com',
-      to: email,
-      subject: 'Welcome!',
-      html: emailHtml
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: 'alkhyrytm108@gmail.com',
+        to: [email],
+        subject: 'تم استلام طلبك بنجاح',
+        html: `<strong>مرحباً ${name}</strong><br/>شكراً لتقديم طلبك. سيتم مراجعته قريباً.`,
+      }),
     });
 
-    return res.status(200).json({ success: true, data });
+    if (res.ok) {
+      const data = await res.json();
+      return new Response(JSON.stringify({ success: true, data }), { status: 200 });
+    } else {
+      const error = await res.json();
+      return new Response(JSON.stringify({ success: false, error }), { status: res.status });
+    }
   } catch (error) {
-    return res.status(500).json({ success: false, error: error.message });
+    return new Response(JSON.stringify({ success: false, error: error.message }), { status: 500 });
   }
 }
