@@ -11,7 +11,7 @@ export default function GrantFormClone() {
     bankName: "",
     bankNum: "",
     explain: "",
-    idNum: ""
+    idNum: "",
   });
 
   const [file, setFile] = useState(null);
@@ -84,7 +84,7 @@ export default function GrantFormClone() {
   };
 
   return (
-    <div dir="rtl" className="min-h-scree bg-green-900 flex items-start justify-center text-white">
+    <div dir="rtl" className="h-full bg-green-900 text-white">
       <div className="w-full max-w-2xl">
         <div className="text-center mb-6">
           <h1 className="text-2xl md:text-3xl font-bold">تسجيل جديد</h1>
@@ -158,7 +158,7 @@ export default function GrantFormClone() {
             <div>
               <label className="block mb-1">رقم الهوية*</label>
               <input name="idNum" value={form.idNum} onChange={handleChange} className={`w-full border rounded-xl px-4 py-2.5 ${errors.idNum ? "border-red-400" : "border-gray-300"}`} />
-              {errors.idNum && <p className="text-red-600 text-sm mt-1">{errors.bankNum}</p>}
+              {errors.idNum && <p className="text-red-600 text-sm mt-1">{errors.idNum}</p>}
             </div>
 
             {/* صورة الهوية */}

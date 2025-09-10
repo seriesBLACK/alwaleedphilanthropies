@@ -10,6 +10,7 @@ import About from "./sections/About";
 import Footer from "./components/Footer";
 import Form from "./components/Form";
 import { Route, Routes } from "react-router-dom";
+import ComplaintsForm from "./components/ComplaintsForm";
 
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
         }
       />
       <Route path="/form" element={<Form />} />
+      <Route path="/complain" element={<ComplaintsForm />} />
     </Routes>
   );
 }

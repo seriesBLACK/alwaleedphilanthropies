@@ -7,10 +7,6 @@
   font-family: 'Noto Sans Arabic', ui-sans-serif, system-ui, sans-serif !important;
 }
 
-.white-background {
-  background-color: #f1f1f2;
-}
-
 .focus-area-hover:hover {
   background: linear-gradient(90deg, #6ecbf2 0%, #7ff592 100%);
   -webkit-background-clip: text;
