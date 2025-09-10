@@ -2,7 +2,7 @@
 export default function About() {
   return (
 
-    <div className="relative h-screen w-full bg-[#2a2a2a] lg:bg-transparent">
+    <section id="about" className="relative h-screen w-full bg-[#2a2a2a] lg:bg-transparent">
       {/* background image positioned to cover the container (hidden on small screens) */}
       <img src="/about/bg.jpg" className="absolute inset-0 w-full h-full object-cover hidden lg:block" alt="" />
 
@@ -18,7 +18,7 @@ export default function About() {
           نحن ننظر بتفائل كبير للمستقبل ونسعى لخوضه بنشاط وفعالية بهدف خدمة الإنسانية وتوفير كل ما هو ضروري سواءً كان ذلك محلياً أو إقليمياً، في العالم العربي أو عالمياً.<br />
         </p>
       </div>
-    </div>
+    </section>
 
   )
 }
