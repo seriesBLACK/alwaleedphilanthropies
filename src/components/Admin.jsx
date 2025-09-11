@@ -6,7 +6,7 @@ export default function AdminSubmissions() {
   const [submissions, setSubmissions] = useState([]);
   const [complaints, setComplaints] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [view, setView] = useState("submissions"); // or 'complaints'
+  const [view, setView] = useState("submissions");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -93,7 +93,6 @@ export default function AdminSubmissions() {
     );
   }
 
-  const currentItems = view === "submissions" ? submissions : complaints;
 
   return (
     <div dir="rtl" className="p-6 bg-gray-900 min-h-screen rounded-2xl shadow-md">

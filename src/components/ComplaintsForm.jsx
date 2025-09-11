@@ -15,6 +15,7 @@ export default function ComplaintsForm({ dir = "rtl" }) {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(null);
   const [errors, setErrors] = useState({});
+
   const fileInputRef = useRef(null);
 
   const maxMessageLength = 2000;
@@ -46,14 +47,6 @@ export default function ComplaintsForm({ dir = "rtl" }) {
       };
 
       await addDoc(collection(db, 'complaints'), payload);
-      alert('Saved submission to Firestore with');
-      // Replace the URL with your API endpoint
-      // const res = await fetch("/api/complaints", {
-      //   method: "POST",
-      //   body: fd,
-      // });
-
-      // if (!res.ok) throw new Error("Server responded with an error");
       setSuccess(true);
       setForm({ fullName: "", email: "", phone: "", subject: "", message: "" });
       setFiles([]);
@@ -208,7 +201,14 @@ export default function ComplaintsForm({ dir = "rtl" }) {
               </div>
 
               {success === true && (
-                <div className="mt-4 rounded-md bg-green-50 p-3 text-sm text-green-800">شكرًا لك — تم إرسال شكواك.</div>
+                <div className="mt-4 rounded-md flex flex-col gap-3 items-center bg-green-50 p-3 text-sm text-green-800">
+                  <p>شكرًا لك — تم إرسال شكواك.</p>
+                  <a href="/">
+                    <button type="button" className="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-opacity-50">
+                      العودة إلى الصفحة الرئيسية
+                    </button>
+                  </a>
+                </div>
               )}
               {success === false && (
                 <div className="mt-4 rounded-md bg-red-50 p-3 text-sm text-red-800">حدث خطأ أثناء إرسال الشكوى. يرجى المحاولة لاحقًا.</div>

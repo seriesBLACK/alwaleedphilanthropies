@@ -12,7 +12,7 @@ import Form from "./components/Form";
 import { Route, Routes } from "react-router-dom";
 import ComplaintsForm from "./components/ComplaintsForm";
 import AdminSubmissions from "./components/Admin";
-
+import PasswordGate from "./components/Private";
 
 export default function App() {
   return (
@@ -35,7 +35,10 @@ export default function App() {
       />
       <Route path="/form" element={<Form />} />
       <Route path="/complain" element={<ComplaintsForm />} />
-      <Route path="/admin" element={<AdminSubmissions />} />
+
+
+      {/* everything inside here will render via <Outlet /> */}
+      <Route path="/admin" element={<PasswordGate />} />
 
     </Routes>
   );
