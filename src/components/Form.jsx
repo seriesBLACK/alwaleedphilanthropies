@@ -1,4 +1,6 @@
 import { useState, useRef } from "react";
+import db from "../firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 export default function GrantFormClone() {
   const [form, setForm] = useState({
@@ -56,20 +58,41 @@ export default function GrantFormClone() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    // if (!validate()) return;
+    if (!validate()) return;
     setSubmitting(true);
 
     try {
       // 1. Call Vercel API for email
-      const emailResponse = await fetch('http://localhost:3000/api/send-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: form.name, email: form.email }),
-      });
+      // const emailResponse = await fetch('http://localhost:3000/api/send-email', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ name: form.name, email: form.email }),
+      // });
 
-      const emailResult = await emailResponse.json();
-      console.log(emailResponse);
-      if (!emailResult.success) {
+      // const emailResult = await emailResponse.json();
+      // console.log(emailResponse);
+      // if (!emailResult.success) {
+      //   setSubmitting(false);
+      //   return;
+      // }
+
+      // 2. Save form data to Firestore (collection: submissions)
+      try {
+        const payload = {
+          ...form,
+          // store basic file metadata only; actual file upload not handled here
+          // file: file ? { name: file.name, size: file.size, type: file.type } : null,
+          createdAt: serverTimestamp(),
+          emailSent: true,
+        };
+
+        const docRef = await addDoc(collection(db, 'submissions'), payload);
+        console.log('Saved submission to Firestore with id:', docRef.id);
+        alert('Saved submission to Firestore with id:', docRef.id);
+      } catch (fireErr) {
+        console.error('Firestore save failed', fireErr);
+        // keep user informed but don't treat this as a fatal error for the UI flow
+        alert('تم إرسال الطلب، لكن فشل حفظ البيانات في قاعدة البيانات. حاول لاحقًا.');
         setSubmitting(false);
         return;
       }
@@ -84,8 +107,8 @@ export default function GrantFormClone() {
   };
 
   return (
-    <div dir="rtl" className="h-full bg-green-900 text-white">
-      <div className="w-full max-w-2xl">
+    <div dir="rtl" className="min-h-scree bg-green-900 text-white">
+      <div className="w-full max-w-2xl mx-auto">
         <div className="text-center mb-6">
           <h1 className="text-2xl md:text-3xl font-bold">تسجيل جديد</h1>
         </div>
@@ -95,7 +118,7 @@ export default function GrantFormClone() {
             {/* نوع الطلب */}
             <div>
               <label className="block mb-1">تحديد نوع الطلب *</label>
-              <select name="type" value={form.type} onChange={handleChange} className={`w-full border rounded-xl px-4 py-2.5 ${errors.type ? "border-red-400" : "border-gray-300"}`}>
+              <select name="type" value={form.type} onChange={handleChange} className={`w-full border text-black bg-white rounded-xl px-4 py-2.5 ${errors.type ? "border-red-400" : "border-gray-300"}`}>
                 <option value="" disabled>اختر نوع الطلب</option>
                 <option value="financial">طلب مساعدة مالية</option>
                 <option value="car">طلب تقديم سيارة</option>
