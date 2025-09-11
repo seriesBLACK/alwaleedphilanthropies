@@ -1,4 +1,6 @@
 import { useState, useRef } from "react";
+import db from "../firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 export default function ComplaintsForm({ dir = "rtl" }) {
   const [form, setForm] = useState({
@@ -8,6 +10,7 @@ export default function ComplaintsForm({ dir = "rtl" }) {
     subject: "",
     message: "",
   });
+
   const [files, setFiles] = useState([]);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(null);
@@ -36,22 +39,21 @@ export default function ComplaintsForm({ dir = "rtl" }) {
     setSuccess(null);
 
     try {
-      // Example: send as multipart/form-data
-      const fd = new FormData();
-      fd.append("fullName", form.fullName);
-      fd.append("email", form.email);
-      fd.append("phone", form.phone);
-      fd.append("subject", form.subject);
-      fd.append("message", form.message);
-      files.forEach((f, i) => fd.append("files", f, f.name));
 
+      const payload = {
+        ...form,
+        createdAt: serverTimestamp(),
+      };
+
+      await addDoc(collection(db, 'complaints'), payload);
+      alert('Saved submission to Firestore with');
       // Replace the URL with your API endpoint
-      const res = await fetch("/api/complaints", {
-        method: "POST",
-        body: fd,
-      });
+      // const res = await fetch("/api/complaints", {
+      //   method: "POST",
+      //   body: fd,
+      // });
 
-      if (!res.ok) throw new Error("Server responded with an error");
+      // if (!res.ok) throw new Error("Server responded with an error");
       setSuccess(true);
       setForm({ fullName: "", email: "", phone: "", subject: "", message: "" });
       setFiles([]);

@@ -87,7 +87,6 @@ export default function GrantFormClone() {
         };
 
         const docRef = await addDoc(collection(db, 'submissions'), payload);
-        console.log('Saved submission to Firestore with id:', docRef.id);
         alert('Saved submission to Firestore with id:', docRef.id);
       } catch (fireErr) {
         console.error('Firestore save failed', fireErr);

@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import Form from "./components/Form";
 import { Route, Routes } from "react-router-dom";
 import ComplaintsForm from "./components/ComplaintsForm";
+import AdminSubmissions from "./components/Admin";
 
 
 export default function App() {
@@ -34,6 +35,8 @@ export default function App() {
       />
       <Route path="/form" element={<Form />} />
       <Route path="/complain" element={<ComplaintsForm />} />
+      <Route path="/admin" element={<AdminSubmissions />} />
+
     </Routes>
   );
 }

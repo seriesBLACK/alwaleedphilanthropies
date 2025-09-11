@@ -3,7 +3,7 @@ import "./sidebar.css"
 
 export default function Sidebar({ onClose }) {
   return (
-    <div className="lg:hidden inset-0 h-screen w-[90%] absolute flex flex-col gradient-background">
+    <div className="lg:hidden inset-0 h-[100dvh] w-[90%] absolute flex flex-col gradient-background">
       <button className="my-12" onClick={() => onClose?.()}>
         <X className="text-white size-12" />
       </button>
@@ -11,7 +11,7 @@ export default function Sidebar({ onClose }) {
         {[
           ["الرئيسية", "#home"],
           ["تقديم طلب جديد", "/form"],
-          ["تقديم شكوى", "#impact"],
+          ["تقديم شكوى", "/complain"],
           ["الأخبار", "#news"],
           ["عن المؤسسة", "#about"],
           ["تواصل معنا", "#footer"],
