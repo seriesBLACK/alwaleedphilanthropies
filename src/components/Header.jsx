@@ -9,31 +9,47 @@ export default function Header() {
   return (
     <header className="absolute w-full top-0 z-40 backdrop-blur-[5px]">
       <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 h-22 flex items-center justify-between border-b border-white">
+
+        {/* Logo with heading for SEO */}
         <div className="flex items-center gap-3">
-          <img className="w-[137px] h-[60]" src="/logo.png" alt="logo" />
+          <a href="#home" className="flex items-center" aria-label="العودة إلى الصفحة الرئيسية">
+            <img
+              className="w-[137px] h-[60px]"
+              src="/logo.png"
+              alt="شعار المؤسسة"
+            />
+            <h1 className="sr-only">اسم المؤسسة</h1>
+          </a>
         </div>
 
-
-        <nav className="hidden lg:flex gap-6 text-[26px] text-white">
-          <a href="#home" className="">الرئيسية</a>
-          <a href="#impact" className="">مجالات التأثير</a>
-          <a href="#projects" className="">المشاريع</a>
-          <a href="#news" className="">الأخبار</a>
-          <a href="#about" className="">عن المؤسسة</a>
-          <a href="#contact" className="">تواصل معنا</a>
+        {/* Desktop Navigation */}
+        <nav
+          className="hidden lg:flex gap-6 text-[26px] text-white"
+          aria-label="القائمة الرئيسية"
+        >
+          <ul className="flex gap-6">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#impact">مجالات التأثير</a></li>
+            <li><a href="#projects">المشاريع</a></li>
+            <li><a href="#news">الأخبار</a></li>
+            <li><a href="#about">عن المؤسسة</a></li>
+            <li><a href="#footer">تواصل معنا</a></li>
+          </ul>
         </nav>
 
-
-        <button className="lg:hidden" onClick={() => setOpen((s) => !s)} aria-label="فتح القائمة">
+        {/* Mobile Menu Button */}
+        <button
+          className="lg:hidden"
+          onClick={() => setOpen((s) => !s)}
+          aria-label="فتح القائمة"
+        >
           <Menu className="text-white" />
         </button>
       </div>
 
-
-      {/* mobile drawer */}
-      {open && (
-        <Sidebar onClose={() => setOpen(false)} />
-      )}
+      {/* Mobile Drawer */}
+      {open && <Sidebar onClose={() => setOpen(false)} />}
     </header>
+
   )
 }

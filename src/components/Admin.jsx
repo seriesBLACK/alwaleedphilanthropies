@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import db from "../firebase"; // your firebase.js init file
+import { db } from "../firebase"; // your firebase.js init file
 import { collection, getDocs } from "firebase/firestore";
 
 export default function AdminSubmissions() {

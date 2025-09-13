@@ -1,6 +1,8 @@
 import { useState, useRef } from "react";
-import db from "../firebase";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
+// import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+// import { storage } from "../firebase"
 import SuccessSubmission from "./SuccessSubmission";
 
 export default function GrantFormClone() {
@@ -63,14 +65,21 @@ export default function GrantFormClone() {
     if (!validate()) return;
     setSubmitting(true);
 
-
     // 2. Save form data to Firestore (collection: submissions)
     try {
+      // let imageUrl = null;
+      // if (file) {
+      //   const storageRef = ref(storage, `uploads/${Date.now()}-${file.name}`);
+      //   await uploadBytes(storageRef, file);
+      //   imageUrl = await getDownloadURL(storageRef);
+      //   console.log("img");
+      // }
+
       const payload = {
         ...form,
-        createdAt: serverTimestamp(),
-        emailSent: true,
+        createdAt: new Date().toISOString(),
       };
+
       await addDoc(collection(db, 'submissions'), payload);
       setSuccess(true)
     } catch (fireErr) {

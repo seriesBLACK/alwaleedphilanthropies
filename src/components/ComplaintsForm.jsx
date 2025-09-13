@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
-import db from "../firebase";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 export default function ComplaintsForm({ dir = "rtl" }) {
   const [form, setForm] = useState({
@@ -43,7 +43,7 @@ export default function ComplaintsForm({ dir = "rtl" }) {
 
       const payload = {
         ...form,
-        createdAt: serverTimestamp(),
+        createdAt: new Date().toISOString(),
       };
 
       await addDoc(collection(db, 'complaints'), payload);
