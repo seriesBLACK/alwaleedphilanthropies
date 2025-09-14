@@ -1,8 +1,4 @@
 import { useState, useRef } from "react";
-import { db } from "../firebase";
-import { collection, addDoc } from "firebase/firestore";
-// import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-// import { storage } from "../firebase"
 import SuccessSubmission from "./SuccessSubmission";
 
 export default function GrantFormClone() {
@@ -62,25 +58,31 @@ export default function GrantFormClone() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (!validate()) return;
+    // if (!validate()) return;
     setSubmitting(true);
 
-    // 2. Save form data to Firestore (collection: submissions)
     try {
-      // let imageUrl = null;
-      // if (file) {
-      //   const storageRef = ref(storage, `uploads/${Date.now()}-${file.name}`);
-      //   await uploadBytes(storageRef, file);
-      //   imageUrl = await getDownloadURL(storageRef);
-      //   console.log("img");
-      // }
+      const formData = new FormData();
+      Object.entries(form).forEach(([key, value]) => {
+        formData.append(key, value);
+      });
+      formData.append("createdAt", new Date().toISOString());
+      formData.append("file", file); // The uploaded file
 
-      const payload = {
-        ...form,
-        createdAt: new Date().toISOString(),
-      };
+      const res = await fetch('/api/server', {
+        method: 'POST',
+        body: formData,
+      });
 
-      await addDoc(collection(db, 'submissions'), payload);
+      const result = await res.json();
+      if (!result.success) {
+        console.log(result.message);
+        setSubmitting(false);
+        return;
+      }
+
+      console.log(result.message);
+
       setSuccess(true)
     } catch (fireErr) {
       console.error('Firestore save failed', fireErr);
@@ -95,7 +97,7 @@ export default function GrantFormClone() {
   };
 
   return (
-    <div dir="rtl" className="min-h-scree bg-green-900 text-white">
+    <div dir="rtl" className="min-h-scree bg-[#013a19] text-white">
       {success ? <SuccessSubmission /> :
         <div className="w-full max-w-2xl mx-auto">
           <div className="text-center mb-6">
