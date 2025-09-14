@@ -1,8 +1,7 @@
-const multer = require("multer");
-const fs = require("fs");
-const FormData = require("form-data");
-const fetch = require("node-fetch");
-
+import multer from "multer";
+import fs from "fs";
+import FormData from "form-data";
+import fetch from "node-fetch";
 // Configure multer to store files in /tmp (Vercel allows temporary storage there)
 const upload = multer({ dest: "/tmp" });
 
