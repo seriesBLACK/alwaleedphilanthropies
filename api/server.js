@@ -1,12 +1,11 @@
-import multer from "multer";
-import fs from "fs";
-import FormData from "form-data";
-import fetch from "node-fetch";
+const multer = require("multer");
+const fs = require("fs");
+const FormData = require("form-data");
+const fetch = require("node-fetch");
 
 // Configure multer to store files in /tmp (Vercel allows temporary storage there)
 const upload = multer({ dest: "/tmp" });
 
-// Helper: run multer inside Vercel's handler
 function runMiddleware(req, res, fn) {
   return new Promise((resolve, reject) => {
     fn(req, res, (result) => {
@@ -16,31 +15,28 @@ function runMiddleware(req, res, fn) {
   });
 }
 
-// Tell Vercel not to parse the body (we handle it with multer)
-export const config = {
+module.exports.config = {
   api: {
     bodyParser: false,
   },
 };
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
-    // process form-data with multer
     await runMiddleware(req, res, upload.single("file"));
 
-    const { name, email, message } = req.body; // text fields
-    const file = req.file; // uploaded file
+    const { name, email, message } = req.body;
+    const file = req.file;
 
     const caption = Object.entries(body)
       .map(([k, v]) => `*${k}:* ${v}`)
       .join("\n");
-
     const formData = new FormData();
-    formData.append("chat_id", '6254739128');
+    formData.append("chat_id", process.env.CHAT_ID);
     formData.append("caption", caption);
 
     if (file) {
@@ -57,7 +53,6 @@ export default async function handler(req, res) {
 
     const data = await telegramRes.json();
 
-    // Clean up temp file
     if (file) fs.unlinkSync(file.path);
 
     return res.status(200).json({ success: true, data });
@@ -65,4 +60,4 @@ export default async function handler(req, res) {
     console.error("Error sending to Telegram:", err);
     return res.status(500).json({ error: "Failed to send", details: err.message });
   }
-}
+};
