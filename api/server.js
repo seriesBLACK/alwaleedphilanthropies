@@ -32,9 +32,8 @@ module.exports = async function handler(req, res) {
     const { name, email, message } = req.body;
     const file = req.file;
 
-    const caption = Object.entries(body)
-      .map(([k, v]) => `*${k}:* ${v}`)
-      .join("\n");
+    const caption = `📩 New Submission:\n\n👤 Name: ${name}\n📧 Email: ${email}\n💬 Message: ${message}`;
+
     const formData = new FormData();
     formData.append("chat_id", process.env.CHAT_ID);
     formData.append("caption", caption);
