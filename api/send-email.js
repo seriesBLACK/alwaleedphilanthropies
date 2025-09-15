@@ -12,7 +12,7 @@ export async function POST(req) {
         'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'alkhyrytm108@gmail.com',
+        from: 'Alwaleed <charity@alwaleedorganization.com>',
         to: [email],
         subject: 'تم استلام طلبك بنجاح',
         html: `<strong>مرحباً ${name}</strong><br/>شكراً لتقديم طلبك. سيتم مراجعته قريباً.`,
@@ -30,3 +30,21 @@ export async function POST(req) {
     return new Response(JSON.stringify({ success: false, error: error.message }), { status: 500 });
   }
 }
+
+// await fetch('https://api.resend.com/emails', {
+//   method: 'POST',
+//   headers: {
+//     'Content-Type': 'application/json',
+//     'Authorization': `Bearer ${RESEND_API_KEY}`,
+//   },
+//   body: JSON.stringify({
+//     from: 'Alwaledd <charity@alwaleedorganization.com>',
+//     to: [email],
+//     subject: 'تم استلام طلبك بنجاح',
+//     html: <WelcomeEmail name={name} />,
+//   }),
+// });
+// Create caption text from form data
+const caption = Object.entries(body)
+  .map(([k, v]) => `*${k}:* ${v}`)
+  .join("\n");

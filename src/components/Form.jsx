@@ -69,11 +69,20 @@ export default function GrantFormClone() {
       formData.append("createdAt", new Date().toISOString());
       formData.append("file", file); // The uploaded file
 
+      const emailResponse = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: form.name, email: form.email }),
+
+      })
+      const emailResult = await emailResponse.json();
+      console.log(emailResult.success);
+
+
       const res = await fetch('/api/server', {
         method: 'POST',
         body: formData,
       });
-
       const result = await res.json();
       if (!result.success) {
         console.log(result.message);
