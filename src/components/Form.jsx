@@ -1,4 +1,6 @@
 import { useState, useRef } from "react";
+import { supabase } from '../supabaseClient';
+
 import SuccessSubmission from "./SuccessSubmission";
 
 export default function GrantFormClone() {
@@ -58,39 +60,50 @@ export default function GrantFormClone() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    // if (!validate()) return;
+    if (!validate()) return;
     setSubmitting(true);
 
     try {
-      const formData = new FormData();
-      Object.entries(form).forEach(([key, value]) => {
-        formData.append(key, value);
-      });
-      formData.append("createdAt", new Date().toISOString());
-      formData.append("file", file); // The uploaded file
+      let imageUrl = null;
 
-      const emailResponse = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: form.name, email: form.email }),
+      if (file) {
+        // Upload image to Supabase Storage
+        const fileName = `${Date.now()}_${file.name}`;
 
-      })
-      const emailResult = await emailResponse.json();
-      console.log(emailResult.success);
+        const { data, error: dbError } = await supabase.storage.from('images')   // 'images' is the name of your bucket
+          .upload(fileName, file, {
+            cacheControl: '3600',
+            upsert: false
+          });
+        console.log(dbError)
+        // Get public URL of the file
+        const { data: publicData } = supabase
+          .storage
+          .from('images')
+          .getPublicUrl(fileName);
 
+        imageUrl = publicData.publicUrl;
+        console.log(imageUrl);
 
-      const res = await fetch('/api/server', {
-        method: 'POST',
-        body: formData,
-      });
-      const result = await res.json();
-      if (!result.success) {
-        console.log(result.message);
-        setSubmitting(false);
-        return;
       }
 
-      console.log(result.message);
+      const payload = {
+        ...form,
+        imageUrl
+      }
+      // Now insert form data + image URL into the DB
+      const { data, error: dbError } = await supabase
+        .from('form_entries')
+        .insert([
+          payload
+        ]);
+
+      if (dbError) {
+        console.log('Error saving form data: ' + dbError.message);
+      } else {
+        console.log('Form submitted successfully!');
+
+      }
 
       setSuccess(true)
     } catch (fireErr) {

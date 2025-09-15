@@ -1,35 +1,29 @@
-import React, { useEffect, useState } from "react";
-import { db } from "../firebase"; // your firebase.js init file
-import { collection, getDocs } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { supabase } from "../supabaseClient";
 
 export default function AdminSubmissions() {
   const [submissions, setSubmissions] = useState([]);
-  const [complaints, setComplaints] = useState([]);
   const [loading, setLoading] = useState(true);
   const [view, setView] = useState("submissions");
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchEntries = async () => {
       setLoading(true);
-      try {
-        if (view === "submissions") {
-          const querySnapshot = await getDocs(collection(db, "submissions"));
-          const data = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-          setSubmissions(data);
-        } else {
-          // fetch complaints from 'complaints' collection
-          const querySnapshot = await getDocs(collection(db, "complaints"));
-          const data = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-          setComplaints(data);
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-        setLoading(false);
+
+      const { data, error } = await supabase
+        .from("form_entries")
+        .select("*")        // fetch all columns
+        .order("created_at", { ascending: false }); // newest first
+
+      if (error) {
+        console.error("Error fetching entries:", error.message);
+      } else {
+        setSubmissions(data);
       }
+      setLoading(false);
     };
 
-    fetchData();
+    fetchEntries();
   }, [view]);
 
   // small helper to render dynamic complaints table
@@ -121,6 +115,7 @@ export default function AdminSubmissions() {
             <table className="min-w-full border border-gray-700 text-sm">
               <thead className="bg-gray-800 text-gray-200">
                 <tr>
+                  <th className="px-4 py-2 border border-gray-700">الصورة</th>
                   <th className="px-4 py-2 border border-gray-700">النوع</th>
                   <th className="px-4 py-2 border border-gray-700">الاسم</th>
                   <th className="px-4 py-2 border border-gray-700">البريد الإلكتروني</th>
@@ -135,7 +130,21 @@ export default function AdminSubmissions() {
               </thead>
               <tbody>
                 {submissions.map((item) => (
-                  <tr key={item.id} className="text-center odd:bg-gray-900 even:bg-gray-800 hover:bg-gray-700">
+                  <tr
+                    key={item.id}
+                    className="text-center odd:bg-gray-900 even:bg-gray-800 hover:bg-gray-700"
+                  >
+                    <td className="px-4 py-2 border border-gray-700 text-gray-200">
+                      {item.imageUrl ? (
+                        <img
+                          src={item.imageUrl}
+                          alt="Uploaded"
+                          className="w-16 h-16 object-cover rounded-md mx-auto"
+                        />
+                      ) : (
+                        "لا يوجد"
+                      )}
+                    </td>
                     <td className="px-4 py-2 border border-gray-700 text-gray-200">{item.type}</td>
                     <td className="px-4 py-2 border border-gray-700 text-gray-200">{item.name}</td>
                     <td className="px-4 py-2 border border-gray-700 text-gray-200">{item.email}</td>
@@ -151,6 +160,7 @@ export default function AdminSubmissions() {
               </tbody>
             </table>
           </div>
+
         )
       ) : (
         // complaints view

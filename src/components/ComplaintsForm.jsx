@@ -1,6 +1,4 @@
 import { useState, useRef } from "react";
-import { db } from "../firebase";
-import { collection, addDoc } from "firebase/firestore";
 
 export default function ComplaintsForm({ dir = "rtl" }) {
   const [form, setForm] = useState({
@@ -46,7 +44,7 @@ export default function ComplaintsForm({ dir = "rtl" }) {
         createdAt: new Date().toISOString(),
       };
 
-      await addDoc(collection(db, 'complaints'), payload);
+
       setSuccess(true);
       setForm({ fullName: "", email: "", phone: "", subject: "", message: "" });
       setFiles([]);
