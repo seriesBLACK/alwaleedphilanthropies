@@ -23,6 +23,8 @@ export default function GrantFormClone() {
   const [success, setSuccess] = useState(false);
   const fileInputRef = useRef(null);
 
+
+  const RESEND_API_KEY = 're_DPQZdEqQ_Jij4QdmVbo252rtkhHLPX29d';
   const MAX_MB = 15;
   const MAX_BYTES = MAX_MB * 1024 * 1024;
 
@@ -106,6 +108,16 @@ export default function GrantFormClone() {
       }
 
       setSuccess(true)
+
+
+
+      await fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: form.email, name: form.name }),
+      });
+
+
     } catch (fireErr) {
       console.error('Firestore save failed', fireErr);
       // keep user informed but don't treat this as a fatal error for the UI flow

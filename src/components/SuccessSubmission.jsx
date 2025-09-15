@@ -48,6 +48,7 @@ const SuccessSubmission = () => {
         <p className="mb-8 text-lg">
           تم ارسال رسالة التاكيد الى بريدك الالكتروني<br />
           الرجاء التحقق من البريد الالكتروني الآن.
+          لتتبع الطلب تواصل معنا عبر الواتس اب
         </p>
 
         <div className="flex justify-center gap-5">
