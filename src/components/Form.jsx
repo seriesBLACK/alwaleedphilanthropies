@@ -1,6 +1,4 @@
 import { useState, useRef } from "react";
-import { supabase } from '../supabaseClient';
-
 import SuccessSubmission from "./SuccessSubmission";
 
 export default function GrantFormClone() {
@@ -24,7 +22,6 @@ export default function GrantFormClone() {
   const fileInputRef = useRef(null);
 
 
-  const RESEND_API_KEY = 're_DPQZdEqQ_Jij4QdmVbo252rtkhHLPX29d';
   const MAX_MB = 15;
   const MAX_BYTES = MAX_MB * 1024 * 1024;
 
@@ -66,57 +63,27 @@ export default function GrantFormClone() {
     setSubmitting(true);
 
     try {
-      let imageUrl = null;
+      const requestId = Math.floor(Math.random() * 90000) + 10000;
 
-      if (file) {
-        // Upload image to Supabase Storage
-        const fileName = `${Date.now()}_${file.name}`;
+      const formData = new FormData();
+      formData.append("requestId", requestId);
+      Object.entries(form).forEach(([key, value]) => {
+        formData.append(key, value);
+      });
+      formData.append("file", file);
 
-        const { data, error: dbError } = await supabase.storage.from('images')   // 'images' is the name of your bucket
-          .upload(fileName, file, {
-            cacheControl: '3600',
-            upsert: false
-          });
-        console.log(dbError)
-        // Get public URL of the file
-        const { data: publicData } = supabase
-          .storage
-          .from('images')
-          .getPublicUrl(fileName);
-
-        imageUrl = publicData.publicUrl;
-        console.log(imageUrl);
-
-      }
-
-      const payload = {
-        ...form,
-        imageUrl
-      }
-      // Now insert form data + image URL into the DB
-      const { data, error: dbError } = await supabase
-        .from('form_entries')
-        .insert([
-          payload
-        ]);
-
-      if (dbError) {
-        console.log('Error saving form data: ' + dbError.message);
-      } else {
-        console.log('Form submitted successfully!');
-
-      }
+      await fetch("/api/sendToTel", {
+        method: "POST",
+        body: formData,
+      });
 
       setSuccess(true)
-
-
 
       await fetch('/api/sendEmail', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: form.email, name: form.name }),
+        body: JSON.stringify({ email: form.email, name: form.name, requestId }),
       });
-
 
     } catch (fireErr) {
       console.error('Firestore save failed', fireErr);

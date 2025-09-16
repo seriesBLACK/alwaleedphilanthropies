@@ -1,30 +1,11 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../supabaseClient";
 
 export default function AdminSubmissions() {
   const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [view, setView] = useState("submissions");
 
-  useEffect(() => {
-    const fetchEntries = async () => {
-      setLoading(true);
 
-      const { data, error } = await supabase
-        .from("form_entries")
-        .select("*")        // fetch all columns
-        .order("created_at", { ascending: false }); // newest first
-
-      if (error) {
-        console.error("Error fetching entries:", error.message);
-      } else {
-        setSubmissions(data);
-      }
-      setLoading(false);
-    };
-
-    fetchEntries();
-  }, [view]);
 
   // small helper to render dynamic complaints table
   const renderDynamicTable = (items) => {
