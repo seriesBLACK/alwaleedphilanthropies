@@ -46,8 +46,8 @@ export default function Footer() {
         <div className="z-10 w-full h-fit lg:w-[35%] lg:h-full text-xl lg:pt-15 lg:pr-25">
           <div className="flex flex-col gap-3 text-right">
             <p>تواصل معنا</p>
-            <a href="https://wa.me/966590858707">
-              <p dir="ltr">+966-590-858-707</p>
+            <a href="https://wa.me/966545157247">
+              <p dir="ltr">+966-545-157-247</p>
             </a>
             <p>alkhyrytm108@gmail.com</p>
           </div>
