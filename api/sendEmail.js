@@ -59,7 +59,7 @@ export default async function handler(req, res) {
             <p style="margin:0;">
               📧 <a href="mailto:alkhyrytm108@gmail.com" style="color:#b3aeae; text-decoration:none;">تواصل عبر
                 Gmail</a> &nbsp; | &nbsp;
-              💬 <a href="https://wa.me/966590858707" style="color:#4aa26a; text-decoration:none;">تواصل عبر
+              💬 <a href="https://wa.me/966545157247" style="color:#4aa26a; text-decoration:none;">تواصل عبر
                 WhatsApp</a>
             </p>
             <p style="margin:10px 0 0 0;">© 2025 Alwaleed Organization</p>
