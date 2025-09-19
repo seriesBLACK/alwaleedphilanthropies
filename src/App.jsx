@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import Hero from "./sections/Hero";
 import News from "./sections/News";
-import Projects from "./sections/Projects";
+import LastWork from "./components/LastWork";
 import './index.css'
 import Ideas from "./sections/Ideas";
 import InfoSection from "./sections/InfoSection";
@@ -11,8 +11,8 @@ import Footer from "./components/Footer";
 import Form from "./components/Form";
 import { Route, Routes } from "react-router-dom";
 import ComplaintsForm from "./components/ComplaintsForm";
-import AdminSubmissions from "./components/Admin";
 import PasswordGate from "./components/Private";
+import Projects from "./sections/Projects";
 
 export default function App() {
   return (
@@ -23,7 +23,7 @@ export default function App() {
           <div dir="rtl" className="">
             <Header />
             <Hero />
-            <Projects />
+            <LastWork />
             <News />
             <Ideas />
             <InfoSection />
@@ -34,6 +34,7 @@ export default function App() {
         }
       />
       <Route path="/form" element={<Form />} />
+      <Route path="/projects" element={<Projects />} />
       <Route path="/complain" element={<ComplaintsForm />} />
 
 

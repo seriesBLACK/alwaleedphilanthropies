@@ -18,7 +18,6 @@ export default function Header() {
               src="/logo.png"
               alt="شعار المؤسسة"
             />
-            <h1 className="sr-only">اسم المؤسسة</h1>
           </a>
         </div>
 
@@ -30,7 +29,7 @@ export default function Header() {
           <ul className="flex gap-6">
             <li><a href="#home">الرئيسية</a></li>
             <li><a href="#impact">مجالات التأثير</a></li>
-            <li><a href="#projects">المشاريع</a></li>
+            <li><a href="/projects">المشاريع</a></li>
             <li><a href="#news">الأخبار</a></li>
             <li><a href="#about">عن المؤسسة</a></li>
             <li><a href="#footer">تواصل معنا</a></li>

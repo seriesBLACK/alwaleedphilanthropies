@@ -77,15 +77,17 @@ function Content() {
           <motion.h1 variants={item} className="text-3xl md:text-5xl leading-[1.2]">
             شركاء في سعي الأنسان
           </motion.h1>
-          <motion.p variants={item} className="mt-4 text-lg md:text-xl text-white/90">
+          <motion.h2 variants={item} className="mt-4 text-lg md:text-xl text-white/90">
             مؤسسة الوليد للإنسانية تدعم كافة ابناء الوطن العربي
-          </motion.p>
+          </motion.h2>
           <motion.div variants={item} className="mt-8 flex justify-start gap-3">
             <a href="/form" className="inline-flex items-center gap-1 px-3 py-3 font-semibold text-white hover:opacity-90">
               لتقديم طلب مساعدة<ArrowLeft size={18} />
             </a>
             <a href="/form" className="inline-flex text-lg px-5 py-3 rounded-xl border-2 border-white text-white hover:bg-white/10">
-              تقديم طلب
+              <button>
+                تقديم طلب
+              </button>
             </a>
           </motion.div>
         </motion.div>
