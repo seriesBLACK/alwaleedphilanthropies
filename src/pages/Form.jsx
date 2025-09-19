@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import SuccessSubmission from "./SuccessSubmission";
+import SuccessSubmission from "../components/SuccessSubmission";
 
 export default function GrantFormClone() {
   const [form, setForm] = useState({

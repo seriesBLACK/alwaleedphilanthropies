@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import AdminSubmissions from "./Admin";
+import AdminSubmissions from "../pages/Admin";
 
 
 export default function PasswordGate() {

@@ -9,12 +9,12 @@ export default function Sidebar({ onClose }) {
       </button>
       <div className="w-full h-full grid gap-4 text-4xl text-white">
         {[
-          ["الرئيسية", "#home"],
+          ["الرئيسية", "/home"],
           ["تقديم طلب جديد", "/form"],
           ["تقديم شكوى", "/complain"],
-          ["الأخبار", "#news"],
-          ["عن المؤسسة", "#about"],
-          ["تواصل معنا", "#footer"],
+          ["الأخبار", "/news"],
+          ["المشاريع", "/projects"],
+          ["مجالات التاثير", "/impact"],
         ].map(([label, href]) => (
           <div key={href} className="w-full flex items-center border-t border-white">
             <a href={href} onClick={() => onClose?.()} className="py-2">

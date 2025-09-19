@@ -27,11 +27,11 @@ export default function Header() {
           aria-label="القائمة الرئيسية"
         >
           <ul className="flex gap-6">
-            <li><a href="#home">الرئيسية</a></li>
-            <li><a href="#impact">مجالات التأثير</a></li>
+            <li><a href="/home">الرئيسية</a></li>
+            <li><a href="/impact">مجالات التأثير</a></li>
             <li><a href="/projects">المشاريع</a></li>
-            <li><a href="#news">الأخبار</a></li>
-            <li><a href="#about">عن المؤسسة</a></li>
+            <li><a href="/news">الأخبار</a></li>
+            <li><a href="/about">عن المؤسسة</a></li>
             <li><a href="#footer">تواصل معنا</a></li>
           </ul>
         </nav>

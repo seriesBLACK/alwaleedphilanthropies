@@ -8,11 +8,12 @@ import InfoSection from "./sections/InfoSection";
 import FocusAreasSection from "./sections/FocusAreasSection";
 import About from "./sections/About";
 import Footer from "./components/Footer";
-import Form from "./components/Form";
+import Form from "./pages/Form";
 import { Route, Routes } from "react-router-dom";
-import ComplaintsForm from "./components/ComplaintsForm";
+import ComplaintsForm from "./pages/ComplaintsForm";
 import PasswordGate from "./components/Private";
-import Projects from "./sections/Projects";
+import Projects from "./pages/Projects";
+import Impact from "./pages/Impact";
 
 export default function App() {
   return (
@@ -35,6 +36,7 @@ export default function App() {
       />
       <Route path="/form" element={<Form />} />
       <Route path="/projects" element={<Projects />} />
+      <Route path="/impact" element={<Impact />} />
       <Route path="/complain" element={<ComplaintsForm />} />
 
 
