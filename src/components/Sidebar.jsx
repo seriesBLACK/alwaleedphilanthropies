@@ -3,11 +3,11 @@ import "./sidebar.css"
 
 export default function Sidebar({ onClose }) {
   return (
-    <div className="lg:hidden inset-0 h-[100dvh] w-[90%] absolute flex flex-col gradient-background">
+    <div className="lg:hidden inset-0 h-[100dvh] w-[90%] absolute flex flex-col z-20 gradient-background">
       <button className="my-12" onClick={() => onClose?.()}>
         <X className="text-white size-12" />
       </button>
-      <div className="w-full h-full grid gap-4 text-4xl text-white">
+      <div className="w-full h-full grid gap-4 z-20 text-4xl text-white">
         {[
           ["الرئيسية", "/home"],
           ["تقديم طلب جديد", "/form"],

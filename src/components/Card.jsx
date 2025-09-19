@@ -28,7 +28,7 @@ export default function Card({
 
   return (
     <div
-      className={`card rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl ${className || "bg-white"} z-10`}
+      className={`rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl ${className || "bg-white"}`}
     >
       <div className="relative w-full h-48 lg:h-58 overflow-hidden">
         {!imageLoaded && (
@@ -41,7 +41,7 @@ export default function Card({
         <img
           src={imageError ? defaultImage : img}
           alt="project image"
-          className={`w-full h-full object-cover transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'} ${imgClassName}`}
+          className={`w-full h-full object-cover ${imageLoaded ? 'opacity-100' : 'opacity-0'} ${imgClassName}`}
           onLoad={handleImageLoad}
           onError={handleImageError}
         />
