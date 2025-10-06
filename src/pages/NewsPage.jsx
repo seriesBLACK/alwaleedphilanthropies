@@ -2,12 +2,13 @@ import Card from "@/components/Card";
 import { useState } from "react";
 import { Menu } from "lucide-react";
 import Sidebar from "@/components/Sidebar";
+import Footer from "@/components/Footer";
 
 export default function NewsPage() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div dir="rtl" className="relative">
+    <div dir="rtl" className="">
       <header className="absolute w-full top-0 backdrop-blur-[5px] mb-22">
         <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 h-22 flex items-center justify-between border-b border-black">
           {/* Logo with heading for SEO */}
@@ -30,9 +31,8 @@ export default function NewsPage() {
               <li><a href="/">الرئيسية</a></li>
               <li><a href="/impact">مجالات التأثير</a></li>
               <li><a href="/projects">المشاريع</a></li>
-              <li><a href="#news">الأخبار</a></li>
-              <li><a href="#about">عن المؤسسة</a></li>
-              <li><a href="#footer">تواصل معنا</a></li>
+              <li><a href="/news">الأخبار</a></li>
+              <li><a href="/about">عن المؤسسة</a></li>
             </ul>
           </nav>
 
@@ -50,7 +50,7 @@ export default function NewsPage() {
         {open && <Sidebar onClose={() => setOpen(false)} />}
       </header>
 
-      <main className="w-full mx-auto px-3 lg:px-29 lg:py-12 py-1 z-10 bg-white/900">
+      <main className="w-full mx-auto mt-22 px-3 lg:px-29 lg:py-12 py-1 z-10 bg-white/900">
         <div className=" w-full lg:w-[50%]">
           <h1 className="text-3xl md:text-5xl leading-[1.2]">أخبار ووقائع</h1>
           <p className="mt-4 text-lg md:text-xl">اشترك في النشرة الإخبارية</p>
@@ -67,6 +67,7 @@ export default function NewsPage() {
           <Card projectState="مستمر" title="تعزيز التنمية المجتمعية المرتكزة على الثقافة من خلال التدريب المهني والتقني وفرص..." goal="تنمية المجتمعات" img="/projects/6.jpg" />
         </div>
       </main>
+      <Footer />
     </div>
   )
 }

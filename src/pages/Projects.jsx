@@ -2,6 +2,7 @@ import Card from "@/components/Card";
 import { useState } from "react";
 import { Menu } from "lucide-react";
 import Sidebar from "@/components/Sidebar";
+import Footer from "@/components/Footer";
 
 export default function Projects() {
   const [open, setOpen] = useState(false);
@@ -28,11 +29,10 @@ export default function Projects() {
           >
             <ul className="flex gap-6">
               <li><a href="/">الرئيسية</a></li>
-              <li><a href="#impact">مجالات التأثير</a></li>
-              <li><a href="#projects">المشاريع</a></li>
-              <li><a href="#news">الأخبار</a></li>
-              <li><a href="#about">عن المؤسسة</a></li>
-              <li><a href="#footer">تواصل معنا</a></li>
+              <li><a href="/impact">مجالات التأثير</a></li>
+              <li><a href="/projects">المشاريع</a></li>
+              <li><a href="/news">الأخبار</a></li>
+              <li><a href="/bout">عن المؤسسة</a></li>
             </ul>
           </nav>
 
@@ -67,6 +67,7 @@ export default function Projects() {
           <Card projectState="الحمله" title="تمكين المرأة السعودية: مبادرة..." goal="تمكين المرأة والشباب" img="/projects/project4.jpg" />
         </div>
       </main>
+      <Footer />
     </div>
   )
 }
