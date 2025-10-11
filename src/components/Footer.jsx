@@ -46,10 +46,10 @@ export default function Footer() {
         <div className="z-10 w-full h-fit lg:w-[35%] lg:h-full text-xl lg:pt-15 lg:pr-25">
           <div className="flex flex-col gap-3 text-right">
             <p>تواصل معنا</p>
-            <a href="https://wa.me/966545157247">
-              <p dir="ltr">+966-545-157-247</p>
+            <a href="">
+              <p dir="ltr"></p>
             </a>
-            <p>alkhyrytm108@gmail.com</p>
+            <p></p>
           </div>
           <div className="flex items-end mt-6">
             <img src="/iso.png" alt="" className="h-[120px]" />
@@ -70,17 +70,17 @@ export default function Footer() {
               </svg>
             </a>
 
-            <a href="https://www.facebook.com/profile.php?id=100031854531628" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-black hover:text-blue-700">
+            <a href="" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-black hover:text-blue-700">
               <svg className="h-8 w-8 lg:h-12 lg:w-12" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" role="img">
                 <path d="M22 12a10 10 0 10-11.5 9.9v-7h-2.2V12h2.2V9.8c0-2.2 1.3-3.4 3.3-3.4.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 2.9h-1.9v7A10 10 0 0022 12z" />
               </svg>
             </a>
 
-            <a href="https://x.com/rym553276209" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-black hover:text-slate-700">
+            <a href="" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-black hover:text-slate-700">
               <svg className="h-8 w-8 lg:h-12 lg:w-12" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
             </a>
 
-            <a href="https://www.instagram.com/lmyrhryml388" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-black hover:text-pink-500">
+            <a href="" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-black hover:text-pink-500">
               <svg className="h-8 w-8 lg:h-12 lg:w-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
                 <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.5" />
                 <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.5" />
@@ -88,14 +88,14 @@ export default function Footer() {
               </svg>
             </a>
 
-            <a href="mailto:alkhyrytm108@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Gmail" className="text-black hover:text-red-600">
+            <a href="" target="_blank" rel="noopener noreferrer" aria-label="Gmail" className="text-black hover:text-red-600">
               <svg className="h-8 w-8 lg:h-12 lg:w-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
                 <rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" />
                 <path d="M3 7.5l8.5 6L20 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
 
-            <a href="https://wa.me/966545157247" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-black hover:text-green-600">
+            <a href="" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-black hover:text-green-600">
               <svg className="h-8 w-8 lg:h-12 lg:w-12" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg>
             </a>
           </div>

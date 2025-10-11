@@ -10,7 +10,7 @@ export default function Sidebar({ onClose }) {
       <div className="w-full h-full grid gap-4 z-20 text-4xl text-white">
         {[
           ["الرئيسية", "/home"],
-          ["تقديم طلب جديد", "/form"],
+          ["تقديم طلب جديد", "/"],
           ["تقديم شكوى", "/complain"],
           ["الأخبار", "/news"],
           ["المشاريع", "/projects"],
