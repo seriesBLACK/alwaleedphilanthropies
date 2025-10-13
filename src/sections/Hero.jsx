@@ -93,7 +93,7 @@ function Content() {
             </a>
 
             <a
-              href="/"
+              href="/form"
               className="inline-flex text-lg px-5 py-3 rounded-xl border-2 border-white text-white hover:bg-white/10"
               aria-label="الانتقال إلى نموذج تقديم طلب"
             >
