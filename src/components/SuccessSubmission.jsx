@@ -1,19 +1,4 @@
-import { useEffect } from "react";
-
 const SuccessSubmission = () => {
-  useEffect(() => {
-    // Run when the component loads
-    if (window.gtag) {
-      window.gtag('event', 'conversion', {
-        send_to: 'AW-17636025932/SHLDCJq0zIcZEMbWld4B',
-        value: 1.0,
-        currency: 'USD',
-      });
-      console.log("Google Ads conversion recorded!");
-    } else {
-      console.warn("gtag not loaded yet");
-    }
-  }, []); // empty dependency array = run once
 
   return (
     <div className="flex flex-col gap-5 items-center justify-center min-h-screen bg-[#013a19] text-white p-4">
