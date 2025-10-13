@@ -77,7 +77,6 @@ function Content() {
           <motion.h1 variants={item} className="text-3xl md:text-5xl lg:text-7xl leading-[1.2] font-bold">
             مؤسسة الوليد للإنسانية
           </motion.h1>
-
           {/* Subheading with keyword-rich description */}
           <motion.p variants={item} className="mt-4 text-lg md:text-xl text-white/90">
             مؤسسة الوليد للإنسانية تدعم أبناء الوطن العربي وتساهم في المشاريع الخيرية والتنموية محليًا وعالميًا.
