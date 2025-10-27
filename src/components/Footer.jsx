@@ -64,7 +64,7 @@ export default function Footer() {
       <footer className="w-full h-16 flex-shrink-0">
         <div className="w-full h-full flex items-center justify-around">
           <div className="flex items-center gap-4">
-            <a href="https://www.youtube.com/channel/UCcbnorgWmKB5sM1himuZlvQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="text-black hover:text-red-600">
+            <a href="https://www.youtube.com/@reem63718" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="text-black hover:text-red-600">
               <svg className="h-8 w-8 lg:h-12 lg:w-12" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" role="img">
                 <rect x="2" y="5" width="20" height="14" rx="4" ry="4" />
                 <path d="M10 8l6 4-6 4V8z" fill="#fff" />
