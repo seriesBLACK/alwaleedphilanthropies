@@ -46,8 +46,8 @@ export default function Footer() {
         <div className="z-10 w-full h-fit lg:w-[35%] lg:h-full text-xl lg:pt-15 lg:pr-25">
           <div className="flex flex-col gap-3 text-right">
             <p>تواصل معنا</p>
-            <a href="https://wa.me/966545157247">
-              <p dir="ltr">+966-545-157-247</p>
+            <a href="https://wa.me/966597322719">
+              <p dir="ltr">+966-597-322-719</p>
             </a>
             <p>alkhyrytm108@gmail.com</p>
 
@@ -77,7 +77,7 @@ export default function Footer() {
               </svg>
             </a>
 
-            <a href="https://x.com/rym553276209" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-black hover:text-slate-700">
+            <a href="https://x.com/Premiu1uy" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-black hover:text-slate-700">
               <svg className="h-8 w-8 lg:h-12 lg:w-12" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
             </a>
 
@@ -96,7 +96,7 @@ export default function Footer() {
               </svg>
             </a>
 
-            <a href="https://wa.me/966545157247" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-black hover:text-green-600">
+            <a href="https://wa.me/966597322719" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-black hover:text-green-600">
               <svg className="h-8 w-8 lg:h-12 lg:w-12" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg>
             </a>
           </div>
